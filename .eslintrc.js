@@ -20,5 +20,6 @@ module.exports = {
     'no-console': isProdection ? 'warn' : 'warn', //禁止使用console
     'no-debugger': isProdection ? 'warn' : 'warn', //禁止使用console
     "semi": [2, "always"],//语句强制分号结尾
+    "indent": [2, 2],
   }
 };
