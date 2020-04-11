@@ -11,10 +11,10 @@ module.exports = {
   chainWebpack: config => {
     config.resolve.alias
       .set('@', resolve('src'))
-      .set('@img', resolve('src/assets/img'))
-      .set('@styl', resolve('src/assets/styl'))
+      .set('@img', resolve('src/assets/images'))
+      .set('@style', resolve('src/assets/styles'))
       .set('@js', resolve('src/assets/js'))
-      .set('@cp', resolve('src/components'))
+      .set('@comp', resolve('src/components'))
       .end();
   },
   productionSourceMap: false,
