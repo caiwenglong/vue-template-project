@@ -1,0 +1,63 @@
+#app .markdown {
+  .markdown-toolbars {
+    background: #2e2e2e !important;
+  }
+  .markdown-toolbars {
+    li {
+      &:after {
+        min-width: 30px;
+        min-height: 32px;
+        padding: 6px 8px;
+        color: #ffffff;
+        background: rgba(0, 0, 0, 0.75);
+        font-size: 14px;
+        box-sizing: border-box;
+      }
+      .iconfont, span {
+        width: 40px;
+        height: 40px;
+        border-radius: 0;
+        line-height: 40px;
+        &:hover {
+          color: #fff;
+          background-color: #595959;
+        }
+      }
+    }
+    .import-file {
+      &:hover {
+        span {
+          color: #fff;
+          background-color: #595959;
+        }
+      }
+    }
+  }
+  .markdown-preview {
+    background: #3d3d3d;
+    > div {
+      background: none;
+    }
+    p {
+      font-size: 20px !important;
+      color: #b3b3b3;
+      font-weight: 400;
+    }
+  }
+  .cm-s-default * {
+    font-size: 20px;
+    font-weight: 400;
+    color: #999999;
+  }
+  .cm-s-default.CodeMirror {
+    background-color: #2f2f2f !important;
+  }
+  .close-preview {
+    span {
+      color: #f2f2f2;
+      &:hover {
+        color: #ffffff;
+      }
+    }
+  }
+}

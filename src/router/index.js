@@ -1,15 +1,13 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import { constantRoutes } from './router'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import { constantRoutes } from './router';
 
-Vue.use(VueRouter)
-
-const routes = constantRoutes
+Vue.use(VueRouter);
 
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes
-})
+  routes: constantRoutes
+});
 
-export default router
+export default router;

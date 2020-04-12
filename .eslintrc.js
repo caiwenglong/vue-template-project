@@ -21,5 +21,14 @@ module.exports = {
     'no-debugger': isProdection ? 'warn' : 'warn', //禁止使用console
     "semi": [2, "always"],//语句强制分号结尾
     "indent": [2, 2],
-  }
+    'vue/script-indent': ['error', 2, {'baseIndent': 1}], // 在vue-cli中，使用eslint时会对代码进行校验，其在.vue文件中支持的是不缩进
+  },
+  overrides: [
+    {
+      'files': ['*.vue'],
+      'rules': {
+        'indent': 'off'
+      }
+    }
+  ]
 };
