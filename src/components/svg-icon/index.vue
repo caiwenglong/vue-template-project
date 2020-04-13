@@ -1,7 +1,9 @@
 <template>
-  <svg :class="svgClass" aria-hidden="true">
-    <use :xlink:href="iconName"></use>
-  </svg>
+  <Tooltip :content="tipContent">
+    <svg :class="svgClass" aria-hidden="true">
+      <use :xlink:href="iconName"></use>
+    </svg>
+  </Tooltip>
 </template>
 
 <script>
@@ -13,6 +15,9 @@
         required: true
       },
       customizedClass: {
+        type: String
+      },
+      tipContent: {
         type: String
       }
     },
@@ -33,10 +38,10 @@
 
 <style scoped>
   .svg-icon {
-    width: 1em;
-    height: 1em;
-    vertical-align: -0.15em;
+    width: 32px;
+    height: 32px;
     fill: currentColor;
     overflow: hidden;
+    cursor: pointer;
   }
 </style>
