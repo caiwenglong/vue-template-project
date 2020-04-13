@@ -1,7 +1,7 @@
 <template>
   <div class="notebook-writing">
     <layout>
-      <sider><svg-icon :inputIconName="'user'"></svg-icon></sider>
+      <sider>aaa <svg-icon customized-class="icon-user2" class="icon-user" icon-class="user" ></svg-icon></sider>
       <content>
         <YBYMarkdown></YBYMarkdown>
       </content>

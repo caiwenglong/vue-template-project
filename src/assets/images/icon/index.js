@@ -1,8 +1,8 @@
-import vue from 'vue';
+import Vue from 'vue';
 
-import SvgIcon from '@comp/svg-icon';
+import SvgIcon from '../../../../src/components/svg-icon';
 
-vue.component('svg-icon', SvgIcon);
+Vue.component('svg-icon', SvgIcon);
 
 const requireAll = requireContext => requireContext.keys().map(requireContext);
 console.log(requireAll);

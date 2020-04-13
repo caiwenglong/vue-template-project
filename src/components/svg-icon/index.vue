@@ -1,32 +1,30 @@
 <template>
-  <div>
-    <svg :class="svgClass">
-      <use :xlink:href="iconName"></use>
-    </svg>
-  </div>
+  <svg :class="svgClass" aria-hidden="true">
+    <use :xlink:href="iconName"></use>
+  </svg>
 </template>
 
 <script>
   export default {
     name: 'SvgIcon',
     props: {
-      inputSvgClass: {
-        type: String
-      },
-      inputIconName: {
+      iconClass: {
         type: String,
-        require: true
+        required: true
+      },
+      customizedClass: {
+        type: String
       }
     },
     computed: {
       iconName () {
-        return `#icon-${this.inputIconName}`;
+        return `#icon-${this.iconClass}`;
       },
       svgClass () {
-        if (this.inputSvgClass) {
-          return 'svg-icon ' + this.iconName + '' + this.inputSvgClass;
+        if (this.customizedClass) {
+          return 'svg-icon ' + this.customizedClass;
         } else {
-          return 'svg-icon ' + this.iconName;
+          return 'svg-icon';
         }
       }
     }
@@ -34,5 +32,11 @@
 </script>
 
 <style scoped>
-
+  .svg-icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+  }
 </style>
