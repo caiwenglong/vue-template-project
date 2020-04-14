@@ -2,4 +2,23 @@
   .ivu-layout-sider {
     background: #2f2f2f;
   }
+  .side-content {
+    .ivu-menu-dark {
+      background: transparent;
+      .ivu-menu-opened {
+        background: #3d3d3d;
+        .ivu-menu-submenu-title {
+          background: #1b1a1a;
+        }
+      }
+      .ivu-menu-submenu-title {
+        &:hover {
+          background: #1b1a1a;
+        }
+      }
+      .ivu-menu-submenu .ivu-menu-item-active {
+        background: #1b202b!important;
+      }
+    }
+  }
 }

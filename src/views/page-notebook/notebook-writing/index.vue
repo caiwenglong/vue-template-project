@@ -2,21 +2,47 @@
   <div class="notebook-writing">
     <layout>
       <sider class="layout-side" :width="sideWidth">
-        <span @click="toggleDrawer" class="icon-isExpand-wrapper">
-          <svg-icon tip-content="展开" v-if="!isExpand" class="icon-expand" icon-class="expand"></svg-icon>
-        </span>
-        <Drawer
-          title="Create"
-          v-model="isExpand"
-          placement="left"
-          width="720"
-          :mask-closable="false"
-        >
-          <div class="demo-drawer-footer">
-            <Button style="margin-right: 8px" @click="isExpand = false">Cancel</Button>
-            <Button type="primary" @click="isExpand = false">Submit</Button>
-          </div>
-        </Drawer>
+        <div class="side-header">
+          <span @click="handleBackToHome" class="back-to-home">
+            <svg-icon tip-content="返回首页" customized-class="icon-back-to-home" icon-class="back-to-home"></svg-icon>
+          </span>
+        </div>
+        <div class="side-content">
+          <Menu :theme="'dark'" :open-names="['1']" accordion>
+            <Submenu name="1">
+              <template slot="title">
+                <Icon type="ios-paper" />
+                内容管理
+              </template>
+              <MenuItem name="1-1">文章管理</MenuItem>
+              <MenuItem name="1-2">评论管理</MenuItem>
+              <MenuItem name="1-3">举报管理</MenuItem>
+            </Submenu>
+            <Submenu name="2">
+              <template slot="title">
+                <Icon type="ios-people" />
+                用户管理
+              </template>
+              <MenuItem name="2-1">新增用户</MenuItem>
+              <MenuItem name="2-2">活跃用户</MenuItem>
+            </Submenu>
+            <Submenu name="3">
+              <template slot="title">
+                <Icon type="ios-stats" />
+                统计分析
+              </template>
+              <MenuGroup title="使用">
+                <MenuItem name="3-1">新增和启动</MenuItem>
+                <MenuItem name="3-2">活跃分析</MenuItem>
+                <MenuItem name="3-3">时段分析</MenuItem>
+              </MenuGroup>
+              <MenuGroup title="留存">
+                <MenuItem name="3-4">用户留存</MenuItem>
+                <MenuItem name="3-5">流失用户</MenuItem>
+              </MenuGroup>
+            </Submenu>
+          </Menu>
+        </div>
       </sider>
       <content class="layout-content">
         <div class="notebook-title-wrapper">
@@ -48,8 +74,10 @@
       YBYMarkdown
     },
     methods: {
-      toggleDrawer() {
-        this.isExpand = !this.isExpand;
+      handleBackToHome() {
+        this.$router.push({
+          name: 'Home'
+        });
       }
     }
   };
@@ -60,10 +88,6 @@
   /* 定义icon 宽度变量*/
   $icon-title-width: 32px;
   $icon-title-left: 12px;
-
-  .layout-side {
-    padding: 12px;
-  }
   .layout-content {
     width: 100%;
   }
@@ -87,6 +111,36 @@
       top: 50%;
       margin-top: -($icon-title-width/2);
       left: $icon-title-left;
+    }
+  }
+  .side-header {
+    position: relative;
+    height: 40px;
+    .back-to-home,
+    .icon-isExpand-wrapper {
+      display: inline-block;
+    }
+    .back-to-home {
+      float: left;
+    }
+
+    .icon-isExpand-wrapper {
+      float: right;
+    }
+  }
+</style>
+
+<style lang="scss">
+  .side-header {
+    $side-header-height: 43px;
+    padding-top: 8px;
+    padding-right: 8px;
+    padding-left: 8px;
+    .svg-icon {
+      width: 24px;
+    }
+    .icon-back-to-home {
+      width: 32px;
     }
   }
 </style>
