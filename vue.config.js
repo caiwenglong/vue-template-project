@@ -16,9 +16,23 @@ module.exports = {
       .set('@js', resolve('src/assets/js'))
       .set('@comp', resolve('src/components'))
       .end();
+    config.module
+      .rule('svg')
+      .exclude.add(resolve(('@img/icon')))
+      .end();
+    config.module
+      .rule('icons')
+      .test(/\.svg$/)
+      .include.add(resolve('@img/icon'))
+      .end()
+      .use('svg-sprite-loader')
+      .loader('svg-sprite-loader')
+      .options({
+        symbolId: 'icon-[name]'
+      }).end();
   },
-  productionSourceMap: false,
-  devServer: {
-    proxy: 'http://localhost:3000'
-  }
+  productionSourceMap: false
+  // devServer: {
+  //   proxy: 'http://localhost:3000'
+  // }
 };
