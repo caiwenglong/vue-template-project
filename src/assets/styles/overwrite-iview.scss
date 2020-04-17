@@ -1,3 +1,4 @@
+@import './global';
 #app {
   .ivu-layout-sider {
     background: #2f2f2f;
@@ -19,6 +20,29 @@
       .ivu-menu-submenu .ivu-menu-item-active {
         background: #1b202b!important;
       }
+    }
+  }
+  .ivu-menu-submenu-title {
+    z-index: 901;
+  }
+  .ivu-menu-vertical .ivu-menu-submenu-title-icon {
+    right: 8px;
+  }
+
+  .ivu-menu-item{
+    .ivu-dropdown {
+      right: 44px;
+    }
+  }
+}
+.ivu-select-dropdown.ivu-dropdown-transfer {
+  background: rgba(0,0,0,.8);
+
+  .ivu-dropdown-item {
+    color: $font-color-white-opacity;
+    &:hover {
+      background: #1b1a1a;
+      color: $font-color-white;
     }
   }
 }
