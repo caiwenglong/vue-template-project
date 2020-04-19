@@ -1,5 +1,5 @@
 <template>
-  <div class="notebook-writing">
+  <div class="page-notebook-writing">
     <layout>
       <sider class="layout-side" :width="sideWidth">
         <div class="side-header">
@@ -28,6 +28,7 @@
                       <DropdownItem>删除</DropdownItem>
                     </DropdownMenu>
                   </Dropdown>
+                  <span class="art-create-time">2020-04-18</span>
                 </div>
               </template>
               <MenuItem @mouseenter.native="showMoreIcon" @mouseleave.native="hideMoreIcon" name="1-1">
@@ -78,9 +79,11 @@
         <div class="notebook-title-wrapper">
           <div class="notebook-title">
             <label>
+              <Input v-model="notebookTitle" class="input-notebook-title" maxlength="20" show-word-limit placeholder="请输入文章标题" />
               <input placeholder="请输入文章标题" type="text" class="input-notebook-title">
             </label>
             <span class="publish-article">发表文章</span>
+            <span class="add-tag">添加标签</span>
           </div>
         </div>
         <YBYMarkdown></YBYMarkdown>
@@ -98,7 +101,8 @@
       return {
         sideWidth: '240',
         isExpand: false,
-        isIconMoreShow: false
+        isIconMoreShow: false,
+        notebookTitle: ''
       };
     },
     components: {
@@ -135,7 +139,7 @@
   /* 定义icon 宽度变量*/
   $icon-title-width: 32px;
   $icon-title-left: 12px;
-  .notebook-writing {
+  .page-notebook-writing {
     color: $font-color-white-opacity;
   }
   .layout-content {
@@ -154,6 +158,7 @@
       padding-left: $icon-title-width + $icon-title-left + 8px;
       font-size: 24px;
       background: transparent;
+      color: $font-color-white-opacity;
     }
     .icon-title {
       position: absolute;
@@ -178,11 +183,15 @@
       float: right;
     }
   }
-  .publish-article {
+  .publish-article,
+  .add-tag {
     position:  absolute;
     right: 20px;
     top: 10px;
     cursor: pointer;
+  }
+  .add-tag {
+    right: 100px;
   }
   .ivu-dropdown {
     right: 36px;
@@ -194,6 +203,13 @@
   }
   .sub-menu-title .ivu-icon {
     margin-right: 8px;
+  }
+  .art-create-time {
+    position: absolute;
+    left: 38px;
+    bottom: 0;
+    font-size: 12px;
+    color: $font-color-white-opacity;
   }
 </style>
 

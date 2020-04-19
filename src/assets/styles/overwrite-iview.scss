@@ -1,7 +1,13 @@
 @import './global';
-#app {
+.page-notebook-writing {
   .ivu-layout-sider {
     background: #2f2f2f;
+  }
+  .ivu-input {
+    width: 80%;
+    height: 100%;
+    background: transparent;
+    border: none;
   }
   .side-content {
     .ivu-menu-dark {
@@ -13,6 +19,7 @@
         }
       }
       .ivu-menu-submenu-title {
+        padding: 20px 16px;
         &:hover {
           background: #1b1a1a;
         }
